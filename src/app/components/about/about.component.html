@@ -1,0 +1,14 @@
+<div class="card-body row">
+    <h5 class="card-title">
+        About Me
+    </h5>
+    <div class="card-text" *ngFor="let portfolio of portfolioList" class="card">
+        <p>{{portfolio.about_me}}</p>
+    </div>
+    <!--
+    <div *ngIf="isLogged">
+        <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+        <a href="#"><i class="fa-solid fa-eraser"></i></a>
+    </div>
+    -->
+</div>

@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-body d-none d-lg-block">
+        <img src="assets/banner2.png" width="100%" class="header">
+        <div id="edition" *ngIf="!isLogged">
+            <a href="#" id="banneredit" class="banner edit">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+            <a href="#" id="banneredit" class="">
+                <i class="fa-solid fa-eraser"></i>
+            </a>
+        </div>
+    </div>
+    <div id="edition">
+        <img id="user" src="assets/user.png" class="rounded-circle">
+        <a href="#" class="useredit" *ngIf="!isLogged">
+            <i class="fa-solid fa-pen-to-square"></i>
+        </a>
+        <div id="personalData" *ngFor="let portfolio of portfolioList">
+            <p> {{portfolio.firstname}} {{portfolio.lastname}}</p>
+            <p> {{portfolio.title_arg_programa}} </p>
+            <p> {{portfolio.ubication}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="text-center" *ngIf="!isLogged; else loggedOut">
+    <h2>Ya has iniciado sesión</h2>
+
+    <a href="/" (click)="logOut()"><i class="fa-regular fa-door-closed"></i>Logout</a>
+</div>
+
+<ng-template #loggedOut>
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="assets/user.png" class="img-fluid rounded-circle" alt="login">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form #loginForm="ngForm" (ngSubmit)="onLogin()" novalidate id="login">
+                        <div class="form-group form-outline mb-4">
+                            <label for="nombreusuario">Username</label>
+                            <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control" [(ngModel)]="nombreUsuario" required autocomplete="username">
+                        </div>
+                        <div class="form-outline mb-3">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" class="form-control" [(ngModel)]="password" required autocomplete="current-password">
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn outline success btn-block" [disabled]="!loginForm.valid">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>Login</button>
+                        </div>
+                    </form>
+
+                    <div *ngIf="loginForm.submitted && isLoginFail" class="alert alert-danger mt-3">
+                        Error de login
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-template>

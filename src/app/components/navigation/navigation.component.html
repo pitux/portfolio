@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2b2c2c;">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navArgPrograma" aria-controls="navArgPrograma" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="assets/APLogo.png" class="img-fluid" width="50px"></a>
+        <div class="collapse navbar-collapse" id="navArgPrograma">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-right">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <fa-icon [icon]="iconGitHub"></fa-icon>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLinkActive="active" class="nav-link" routerLink="auth/login" *ngIf="isLogged; else loggedOut">
+                        <fa-icon [icon]="iconLogin " aria-label="Login " aria-expanded="Login ">Login</fa-icon>
+
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<ng-template #loggedOut>
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="assets/user.png" class="img-fluid rounded-circle" alt="login">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form #loginForm="ngForm" (ngSubmit)="onLogin()" novalidate id="login">
+                        <div class="form-outline mb-4">
+                            <label for="nombreusuario">Username</label>
+                            <input type="text" name="nombreusuario" id="nombreusuario" class="form-control" [(ngModel)]="nombreUsuario" required autocomplete="username">
+                        </div>
+                        <div class="form-outline mb-3">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" class="form-control" [(ngModel)]="password" required autocomplete="current-password">
+                        </div>
+
+                        <p>
+                            <button class="btn btn outline success btn-block" [disabled]="!loginForm.valid">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>Login</button>
+                        </p>
+                    </form>
+
+                    <div *ngIf="loginForm.submitted && isLoginFail" class="alert alert-danger mt-3">
+                        Error de login
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-template>
