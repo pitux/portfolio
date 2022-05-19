@@ -1,10 +1,39 @@
-<div class="text-center" *ngIf="!isLogged; else loggedOut">
+<div class="text-center" *ngIf="isLogged; else loggedOut">
     <h2>Ya has iniciado sesión</h2>
-
-    <a href="/" (click)="logOut()"><i class="fa-regular fa-door-closed"></i>Logout</a>
 </div>
 
 <ng-template #loggedOut>
+    <div class="container d-flex justify-content-center">
+        <div class="card">
+            <div class="card-header">
+                <h2>Login</h2>
+            </div>
+            <div class="card-body">
+                <form #loginForm="ngForm" (ngSubmit)="onLogin()" novalidate>
+                    <div class="form-group">
+                        <label for="nombreUsuario">Username</label>
+                        <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control" [(ngModel)]="nombreUsuario" required="true" autocomplete>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombreUsuario">Password</label>
+                        <input type="password" name="password" id="password" class="form-control" [(ngModel)]="password" required="true" autocomplete>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn outline success btn-block" [disabled]="!loginForm.valid">Login</button>
+                    </div>
+
+                    <div *ngIf="loginForm.submitted && isLoginFail" class="alert alert-danger mt-3">
+                        No se pudieron comprobar los datos.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+
+<!--ng-template #loggedOut>
     <section class="vh-100">
         <div class="container-fluid h-custom">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -25,14 +54,14 @@
                         <div class="form-group">
                             <button class="btn btn outline success btn-block" [disabled]="!loginForm.valid">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>Login</button>
-                        </div>
-                    </form>
-
-                    <div *ngIf="loginForm.submitted && isLoginFail" class="alert alert-danger mt-3">
-                        Error de login
                     </div>
+                </form>
+
+                <div *ngIf="loginForm.submitted && isLoginFail" class="alert alert-danger mt-3">
+                    Error de login
                 </div>
             </div>
         </div>
+    </div>
     </section>
-</ng-template>
+    </ng-template-->

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 //Iconos 
 import { faGithub, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faDoorClosed, faDoorOpen, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faDoorOpen, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { LoginUsuario } from 'src/app/security/Entity/login-usuario';
 import { AuthService } from 'src/app/security/service/auth.service';
 import { TokenService } from 'src/app/security/service/token.service';
@@ -20,7 +20,7 @@ export class NavigationComponent implements OnInit {
   iconInstagram = faInstagram;
   iconLogin = faSignInAlt;
   entrar = faDoorOpen;
-  salir = faDoorClosed;
+  salir = faSignOutAlt;
 
   isLogged = false;
   isLoginFail = false;
@@ -39,8 +39,12 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
     if(this.tokenService.getToken()){
       this.isLogged = true;
+      this.nombreUsuario = this.tokenService.getUserName();
+      console.log(this.isLogged)
+      console.log(this.nombreUsuario)
     }else {
       this.isLogged = false;
+      console.log(this.isLogged)
     }
 
     if(this.tokenService.getToken()){
@@ -79,13 +83,12 @@ export class NavigationComponent implements OnInit {
       error: (err) => {
         this.isLogged = false;
         this.isLoginFail = true;
-        this.errorMessage = err.error.error;
-        console.log(err.error.error);
+        this.errorMessage = err.error.errorMessage;
+        console.log(err.error.errorMessage);
         
 
       }
     })
   }
-
 
 }

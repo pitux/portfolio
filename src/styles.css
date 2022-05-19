@@ -3,8 +3,17 @@ body {
     height: 100%;
     margin: 0;
     font-family: 'Josefin Sans', sans-serif;
-    /*   background-color: #2b2c2c;
-    color: #e0a80d; */
+    background-color: #2b2c2c;
+    color: #e0a80d;
+}
+
+fa-icon {
+    margin: 5px;
+    color: #e0a80d;
+}
+
+fa-icon:hover {
+    color: cadetblue;
 }
 
 .ng-valid[required],

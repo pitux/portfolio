@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule} from '@angular/forms'; 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +18,8 @@ import { IndexComponent } from './security/index/index.component';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { LoginComponent } from './security/auth/login/login.component';
-import { MenuComponent } from './security/menu/menu.component';
+
+
 
 @NgModule({
   declarations: [
@@ -30,15 +33,19 @@ import { MenuComponent } from './security/menu/menu.component';
     IndexComponent,
     JobsComponent,
     BannerComponent,
-    LoginComponent,
-    MenuComponent
+    LoginComponent
+
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot({
+      positionClass :'toast-bottom-right'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
