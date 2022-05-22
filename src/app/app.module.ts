@@ -19,6 +19,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { LoginComponent } from './security/auth/login/login.component';
 import { EditProjectComponent } from './components/projects/edit-project/edit-project.component';
 import { ListProjectsComponent } from './components/projects/list-projects/list-projects.component';
+import { NewComponent } from './components/projects/new-projects/new-projects.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ListProjectsComponent } from './components/projects/list-projects/list-
     BannerComponent,
     LoginComponent,
     EditProjectComponent,
-    ListProjectsComponent
+    ListProjectsComponent,
+    NewComponent
 
   ],
   imports: [
