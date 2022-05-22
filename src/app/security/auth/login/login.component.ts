@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+/* Checking if the user is already logged in. If so, it sets the isLogged variable to true, and the
+isLoginFail variable to false. It also sets the roles variable to the authorities of the user. */
     if (this.tokenService.getToken()) {
       this.isLogged = true;
       this.isLoginFail = false;
@@ -36,6 +38,13 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  /**
+   * The function onLogin() is called when the user clicks the login button. It creates a new
+   * LoginUsuario object with the username and password entered by the user. Then it calls the login()
+   * function of the authService, which returns an Observable. The subscribe() function is called on
+   * the Observable, and the data returned by the Observable is stored in the variable data. The token
+   * is stored in the local storage of the browser, and the user is redirected to the home page
+   */
   onLogin(): void {
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
     this.authService.login(this.loginUsuario).subscribe(

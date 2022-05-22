@@ -10,7 +10,7 @@ export class PortfolioService {
   constructor(private http: HttpClient) { }
 
   apiUrl = "https://portfolio-pdg.herokuapp.com/";
-//apiUrl="http://localhost:8080";
+//apiUrl="http://localhost:8080/";
 
   getPortfolio(): any{
     //console.log(this.http.get(this.apiUrl + 'portfolio/all'));
@@ -25,9 +25,7 @@ export class PortfolioService {
     return this.http.get(this.apiUrl + 'jobs/all');
   }
   
-  getProjects():any {
-    return this.http.get(this.apiUrl + 'projects/all');
-  }
+
   getSkills():any {
     return this.http.get(this.apiUrl + 'skills/all');
   }

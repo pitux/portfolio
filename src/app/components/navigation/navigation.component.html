@@ -18,12 +18,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a routerLinkActive="active" class="nav-link" routerLink="auth/login" *ngIf="!isLogged">
+                        <a routerLinkActive="active" title="Login" class="nav-link" routerLink="auth/login" *ngIf="!isLogged">
                             <fa-icon [icon]="iconLogin " aria-label="Login " aria-expanded="Login "></fa-icon>
                         </a>
                     </li>
                     <li class="nav-item" *ngIf="isLogged" (click)="onLogOut()">
-                        <a class="nav-link" style="cursor: pointer;">
+                        <a class="nav-link" style="cursor: pointer;" title="Logout">
                             <fa-icon [icon]="salir" aria-label="Logout" aria-expanded="Logout"></fa-icon>
                         </a>
                     </li>

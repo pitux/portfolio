@@ -1,0 +1,36 @@
+<section class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <h3 class="text-left fw-bolder">Projects</h3>
+        </div>
+        <div class="col-sm-3" *ngIf="isAdmin">
+            <button class="btn btn-outline-success btn-md" routerLink="/nuevo">
+            <i class="fa-regular fa-plus"></i> New Project</button>
+        </div>
+    </div>
+    <div class="row container">
+        <div class="col-sm-3" *ngFor="let project of projects">
+            <div class="card">
+                <img src="https://via.placeholder.com/150?Text=Project Image" class="card-img-top" alt="{{project.project_name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{project.project_name}}</h5>
+                    <p class="card-text">{{project.project_description}}</p>
+                    <h6 class="card-subtitle">Tools:</h6>
+                    <p class="card-text">{{project.project_tools}}</p>
+                    <h6 class="card-subtitle">Year:</h6>
+                    <p class="card-text">{{project.project_start}}</p>
+                    <h6 class="card-subtitle">Website</h6>
+                    <p class="card-text">{{project.project_url}}</p>
+                </div>
+                <div class="card-footer text-center" *ngIf="isAdmin">
+                    <button routerLink="/projects/update/{{project.project_id}}">
+                        <i class="fa-regular fa-pen-to-square"></i>Edit
+                    </button>
+                    <button>
+                        <i (click)="borrar(project.project_id)" class="fa-regular fa-trash-can"></i>Delete
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

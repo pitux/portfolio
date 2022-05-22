@@ -15,10 +15,12 @@
         <a href="#" class="useredit" *ngIf="!isLogged">
             <i class="fa-solid fa-pen-to-square"></i>
         </a>
-        <div id="personalData" *ngFor="let portfolio of portfolioList">
-            <p> {{portfolio.firstname}} {{portfolio.lastname}}</p>
-            <p> {{portfolio.title_arg_programa}} </p>
-            <p> {{portfolio.ubication}}</p>
-        </div>
+        <section class="container">
+            <div id="personalData" *ngFor="let portfolio of portfolioList">
+                <p> {{portfolio.firstname}} {{portfolio.lastname}}</p>
+                <p> {{portfolio.title_arg_programa}} </p>
+                <p> {{portfolio.ubication}}</p>
+            </div>
+        </section>
     </div>
 </div>

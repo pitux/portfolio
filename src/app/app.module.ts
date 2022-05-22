@@ -13,13 +13,12 @@ import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { StudiesComponent } from './components/studies/studies.component';
-import { ProjectsComponent } from './components/projects/projects.component';
 import { IndexComponent } from './security/index/index.component';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { LoginComponent } from './security/auth/login/login.component';
-
-
+import { EditProjectComponent } from './components/projects/edit-project/edit-project.component';
+import { ListProjectsComponent } from './components/projects/list-projects/list-projects.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +28,12 @@ import { LoginComponent } from './security/auth/login/login.component';
     FooterComponent,
     SkillsComponent,
     StudiesComponent,
-    ProjectsComponent,
     IndexComponent,
     JobsComponent,
     BannerComponent,
-    LoginComponent
+    LoginComponent,
+    EditProjectComponent,
+    ListProjectsComponent
 
   ],
   imports: [
