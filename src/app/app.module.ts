@@ -19,7 +19,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { LoginComponent } from './security/auth/login/login.component';
 import { EditProjectComponent } from './components/projects/edit-project/edit-project.component';
 import { ListProjectsComponent } from './components/projects/list-projects/list-projects.component';
-import { NewComponent } from './components/projects/new-projects/new-projects.component';
+import { NewProjectComponent } from './components/projects/new-projects/new-projects.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { NewComponent } from './components/projects/new-projects/new-projects.co
     LoginComponent,
     EditProjectComponent,
     ListProjectsComponent,
-    NewComponent
+    NewProjectComponent
 
   ],
   imports: [
