@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +8,8 @@ export class PortfolioService {
 
   constructor(private http: HttpClient) { }
 
-  apiUrl = "https://portfolio-pdg.herokuapp.com/";
-//apiUrl="http://localhost:8080/";
+//  apiUrl = "https://portfolio-pdg.herokuapp.com/";
+apiUrl="http://localhost:8080/";
 
   getPortfolio(): any{
     //console.log(this.http.get(this.apiUrl + 'portfolio/all'));

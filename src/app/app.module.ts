@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { NgForm } from '@angular/forms';
 import { FormsModule} from '@angular/forms'; 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {RoundProgressModule} from 'angular-svg-round-progressbar';
+
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,9 +21,14 @@ import { IndexComponent } from './security/index/index.component';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { LoginComponent } from './security/auth/login/login.component';
-import { EditProjectComponent } from './components/projects/edit-project/edit-project.component';
-import { ListProjectsComponent } from './components/projects/list-projects/list-projects.component';
-import { NewProjectComponent } from './components/projects/new-projects/new-projects.component';
+
+
+import { InterceptProvider } from './security/interceptors/portfolio-interceptor.service';
+
+import { NewSkillsComponent } from './components/skills/new-skills/new-skills.component';
+import { UpdateSkillsComponent } from './components/skills/update-skills/update-skills.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+
 
 @NgModule({
   declarations: [
@@ -27,16 +36,15 @@ import { NewProjectComponent } from './components/projects/new-projects/new-proj
     NavigationComponent,
     AboutComponent,
     FooterComponent,
+    ProjectsComponent,
     SkillsComponent,
     StudiesComponent,
     IndexComponent,
     JobsComponent,
     BannerComponent,
     LoginComponent,
-    EditProjectComponent,
-    ListProjectsComponent,
-    NewProjectComponent
-
+    NewSkillsComponent,
+    UpdateSkillsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,11 +53,12 @@ import { NewProjectComponent } from './components/projects/new-projects/new-proj
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
+    RoundProgressModule,
     ToastrModule.forRoot({
       positionClass :'toast-bottom-right'
     })
   ],
-  providers: [],
+  providers: [InterceptProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

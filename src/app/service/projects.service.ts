@@ -9,8 +9,8 @@ import { Project } from '../components/model/project';
 export class ProjectsService {
   
   
-  apiUrl = "https://portfolio-pdg.herokuapp.com/projects/";
-  //apiUrl="http://localhost:8080/";
+  //apiUrl = "https://portfolio-pdg.herokuapp.com/projects/";
+  apiUrl="http://localhost:8080/projects/";
 
 
   constructor(private http: HttpClient) { }
@@ -32,11 +32,14 @@ export class ProjectsService {
   }
 
   public updateProject(id: number, project: Project): Observable<any>{
-    return this.http.put<any>(this.apiUrl + 'update/${id}', project)
+
+    console.log(this.http.put<any>(this.apiUrl + 'update'+ id, project));
+    return (this.http.put<any>(this.apiUrl + 'update/' + id , project));
+
   }
 
   public deleteProject(id: number): Observable<any> {
-    return this.http.delete<any>(this.apiUrl + 'delete/${id}');
+    return this.http.delete<any>(this.apiUrl + 'delete/' + id);
   }
 
 }

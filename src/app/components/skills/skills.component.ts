@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { TokenService } from 'src/app/security/service/token.service';
+import { SkillsService } from 'src/app/service/skills.service';
+import { Skills } from '../model/skills';
 
 @Component({
   selector: 'app-skills',
@@ -7,9 +11,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillsComponent implements OnInit {
 
-  constructor() { }
+  max = 100;
+  
+  skills: Skills[] = [];
+  roles!: string[];
+  isAdmin = false;
 
-  ngOnInit(): void {
+  constructor(
+    private skillService: SkillsService,
+    private toastr: ToastrService,
+    private tokenService: TokenService
+  ) { }
+
+  ngOnInit() {
+    this.getSkills();
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
   }
+
+
+getSkills(){
+
+  this.skillService.listSkills().subscribe(
+
+    data => {
+      this.skills = data;
+    },
+    err => {
+      console.log(err);
+    }
+  )
+}
 
 }

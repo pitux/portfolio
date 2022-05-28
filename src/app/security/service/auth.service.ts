@@ -10,8 +10,8 @@ import { LoginUsuario } from '../Entity/login-usuario';
 })
 export class AuthService {
   //authUrl = environment.apiAuthUrl;
-  authUrl = "https://portfolio-pdg.herokuapp.com/auth/";
- // authUrl = "http://localhost:8080/auth/";
+  //authUrl = "https://portfolio-pdg.herokuapp.com/auth/";
+  authUrl = "http://localhost:8080/auth/";
 
   constructor(private httpClient: HttpClient) { }
 

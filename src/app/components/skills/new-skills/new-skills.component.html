@@ -1,0 +1,21 @@
+<p>new-skills works!</p>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="nombre">Skill</label>
+                    <input type="text" class="form-control" id="skills_name" name="skills_name" [(ngModel)]="skills_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="precio">Domain</label>
+                    <input type="number" class="form-control" id="skills_domain" name="skills_domain" [(ngModel)]="skills_domain" required>
+                </div>
+                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                    <i class="fas fa-plus-circle"></i> Crear</button>
+                <button class="btn btn-outline-primary btn-block" routerLink="/skills/all">
+                    <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+.cf:after {
+    clear: both;
+}
+
+.text-vertical {
+    margin-top: -40%;
+}
+
+.progress-wrapper {
+    position: relative;
+    margin: 20px auto;
+    font-size: 20px;
+}
+
+.current {
+    position: relative;
+    color: #bbb;
+    font-weight: 100;
+    line-height: 1;
+}
+
+round-progress {
+    margin: auto;
+}
+
+@media (max-width: 650px) {
+    .back {
+        position: static;
+        display: block;
+        text-align: center;
+    }
+    h2,
+    .back {
+        margin-bottom: 20px;
+    }
+    input,
+    select {
+        width: 100%;
+        margin-top: 5px;
+        float: none;
+    }
+    .container {
+        margin: 0 auto 50px;
+        padding: 25px;
+    }
+}

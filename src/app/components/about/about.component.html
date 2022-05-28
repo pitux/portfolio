@@ -5,13 +5,13 @@
                 About Me
             </h3>
         </div>
-        <div class="card-text" *ngFor="let portfolio of portfolioList">
-            <p>{{portfolio.about_me}}</p>
+        <div class="col-md-4 text-center" *ngIf="isAdmin">
+            <button class="btn btn-outline-success" routerLink="skills/update">
+                <i class="fa-solid fa-pen-to-square"></i> Edit</button>
+            <button class="btn btn-outline-danger" routerLink="/skills/all">
+                <i class="fa-solid fa-trash-can"></i> Delete</button>
         </div>
-
-        <div *ngIf="isLogged">
-            <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-            <a href="#"><i class="fa-solid fa-eraser"></i></a>
-        </div>
-
+    </div>
+    <div class="card-text" *ngFor="let portfolio of portfolioList">
+        <p>{{portfolio.about_me}}</p>
     </div>
