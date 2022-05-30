@@ -37,7 +37,7 @@ skills_id!: number;
   }
 
   onCreate(): void {
-    const skill = new Skills(this.skills_name, this.skills_domain,this.skills_id);
+    const skill = new Skills(this.skills_name, this.skills_domain);
     this.skillService.save(skill).subscribe(
       data => {
         this.toastr.success('Skill created!', 'OK', {

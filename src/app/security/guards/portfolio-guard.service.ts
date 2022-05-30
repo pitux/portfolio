@@ -22,7 +22,7 @@ export class PortfolioGuardService implements CanActivate{
         this.realRole = 'admin';
       }
     });
-    if(!this.tokenService.getToken() || expectedRole.indexOf(this.realRole) === -1) {
+    if(!this.tokenService.getToken()) {
       this.router.navigate(['/']);
       return false;
     }

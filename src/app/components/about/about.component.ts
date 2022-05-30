@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { LoginUsuario } from 'src/app/security/Entity/login-usuario';
-import { AuthService } from 'src/app/security/service/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { TokenService } from 'src/app/security/service/token.service';
 import { PortfolioService } from 'src/app/service/portfolio.service';
+import { Persona } from '../model/persona';
 
 @Component({
   selector: 'app-about',
@@ -16,8 +16,13 @@ export class AboutComponent implements OnInit {
   portfolioList: any = [];
   isAdmin = false;
 
+  //persona: Persona = null;
+
   constructor(
     private portfolioService: PortfolioService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private toastr: ToastrService,
     private tokenService: TokenService,
 ) { }
   
@@ -34,5 +39,32 @@ export class AboutComponent implements OnInit {
     this.portfolioService.getPortfolio().subscribe((response: any) => this.portfolioList = response);
   }
 
+/*
 
+  onAboutUpdate(){
+
+    const id = this.activatedRoute.snapshot.params['id'];
+
+    console.log("Clase: " + this.persona)
+  
+    this.portfolioService.updatePersona(id, this.persona).subscribe(
+        data => {
+          this.toastr.success('Person Updated', 'OK', {
+            timeOut: 3000, positionClass: 'toast-top-center'
+          });
+          console.log(data);
+          this.router.navigate(['/portfolio/all']);
+        },
+        err => {
+          this.toastr.error(err.error.mesagge, 'Fail', {
+            timeOut: 3000, positionClass: 'toast-top-center',
+          });
+          // this.router.navigate(['/']);
+        }
+      );
+  }
+*/
 }
+
+
+

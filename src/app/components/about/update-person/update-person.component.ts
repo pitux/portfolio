@@ -1,34 +1,32 @@
+import { ComponentFactoryResolver } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TokenService } from 'src/app/security/service/token.service';
-import { SkillsService } from 'src/app/service/skills.service';
-import { Skills } from '../../model/skills';
+import { PortfolioService } from 'src/app/service/portfolio.service';
+import { Persona } from '../../model/persona';
 
 @Component({
-  selector: 'app-update-skills',
-  templateUrl: './update-skills.component.html',
-  styleUrls: ['./update-skills.component.css']
+  selector: 'app-update-person',
+  templateUrl: './update-person.component.html',
+  styleUrls: ['./update-person.component.css']
 })
-export class UpdateSkillsComponent implements OnInit {
+export class UpdatePersonComponent implements OnInit {
+  
+  person: Persona = null;
 
   roles!: string[];
   isAdmin = false;
 
-
-/* Declaring a variable of type Skills and initializing it to null. */
-  skills: Skills = null;
-
-  constructor(    
-    private skillService: SkillsService,
+  constructor(
+    private portfolioService: PortfolioService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private toastr: ToastrService,
-    private tokenService: TokenService) { }
+    private tokenService: TokenService
+  ) { }
 
-  ngOnInit() {
-    
+  ngOnInit(){
     this.roles = this.tokenService.getAuthorities();
     this.roles.forEach(rol => {
       if (rol === 'ROLE_ADMIN') {
@@ -37,32 +35,32 @@ export class UpdateSkillsComponent implements OnInit {
     });
 
     const id = this.activatedRoute.snapshot.params['id'];
-
-    this.skillService.detail(id).subscribe(
+    console.log(id)
+    this.portfolioService.getPortfolioById(id).subscribe(
       data => {
-        console.log("Skill ID:" + data.idSkills);
-        console.log("Skill:" + data.skills_name);
-        console.log("Knowledge: " + data.skills_domain);
-        this.skills = data;
+        console.log("Portfolio:")
+        console.log("Name:" + data.firstname);
+        console.log("Lastname:" + data.lastname);
+        console.log("About: " + data.about_me);
+        this.person = data;
       },
       err => {
         this.toastr.error(err.error.mesagge, 'Fail', {
           timeOut: 3000, positionClass: 'toast-top-center',
         });
-        this.router.navigate(['/portfolio/all']);
+        //this.router.navigate(['/portfolio/all']);
       }
     )
   }
 
-onUpdate(){
+  onUpdate(){
 
-  const id = this.activatedRoute.snapshot.params['id'];
+    const id = this.activatedRoute.snapshot.params['id'];
+    console.log("Portfolio: " + this.person);
 
-  console.log("Clase: " + this.skills)
-
-  this.skillService.update(id, this.skills).subscribe(
+    this.portfolioService.updatePersona(id, this.person).subscribe(
       data => {
-        this.toastr.success('Skill Updated', 'OK', {
+        this.toastr.success('Person Updated', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         console.log(data);

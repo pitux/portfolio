@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgForm } from '@angular/forms';
-import { FormsModule} from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ToastrModule } from 'ngx-toastr';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
@@ -28,7 +28,8 @@ import { InterceptProvider } from './security/interceptors/portfolio-interceptor
 import { NewSkillsComponent } from './components/skills/new-skills/new-skills.component';
 import { UpdateSkillsComponent } from './components/skills/update-skills/update-skills.component';
 import { ProjectsComponent } from './components/projects/projects.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UpdatePersonComponent } from './components/about/update-person/update-person.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ProjectsComponent } from './components/projects/projects.component';
     BannerComponent,
     LoginComponent,
     NewSkillsComponent,
-    UpdateSkillsComponent
+    UpdateSkillsComponent,
+    UpdatePersonComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
     FontAwesomeModule,
     FormsModule,
     RoundProgressModule,
+    NgbModule,
     ToastrModule.forRoot({
       positionClass :'toast-bottom-right'
     })

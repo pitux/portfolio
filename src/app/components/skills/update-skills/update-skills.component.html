@@ -1,28 +1,28 @@
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-md-4 mx-auto">
-            <form (ngSubmit)="onUpdate()" novalidate #updateForm="ngForm">
-                <div class="form-group">
-                    <label for="nombre">Id: </label>
-                    <input type="text" class="form-control" id="skills_id" name="skills_id" [(ngModel)]="skills_id">
-                </div>
-                <div class="form-group">
-                    <label for="nombre">Skill: </label>
-                    <input type="text" class="form-control" id="skills_name" name="skills_name" [(ngModel)]="skills_name">
-                </div>
-                <div class="form-group">
-                    <label for="precio">Domain: </label>
-                    <input type="number" class="form-control" id="skills_domain" name="skills_domain" [(ngModel)]="skills_domain">
-                </div>
-                <div class="container mb-4">
-                    <button class="mb-4 btn btn-outline-success btn-block" [disabled]="!updateForm.valid">
+<div *ngIf="skills">
+    <h3 class="text-center">Update Skills</h3>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-4 mx-auto">
+                <form (ngSubmit)="onUpdate()" novalidate #updateForm="ngForm">
+                    <div class="form-group">
+                        <label for="skills_name">Skill Name: </label>
+                        <input type="text" class="form-control" id="skills_name" name="skills_name" [(ngModel)]="skills.skills_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="skills_domain">Skill Domain: </label>
+                        <input type="text" class="form-control" id="skills_domain" name="skills_domain" [(ngModel)]="skills.skills_domain">
+                    </div>
+
+                    <div class="d-grid gap-2 form-group">
+                        <button class="btn btn-outline-success btn-block" [disabled]="!updateForm.valid">
                         <i class="fas fa-refresh"></i> Update
                     </button>
-                    <button class="mb-4 btn btn-outline-primary btn-block" routerLink="**">
+                        <button class="btn btn-outline-primary btn-block" routerLink="**">
                         <i class="fas fa-arrow-alt-circle-left"></i> Volver
                     </button>
-                </div>
-            </form>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

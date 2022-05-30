@@ -4,27 +4,28 @@
             <h3 class="text-left fw-bolder">Skills</h3>
         </div>
         <div class="col-sm-3" *ngIf="isAdmin">
-            <button class="btn btn-outline-success btn-md">
+            <button class="btn btn-outline-success btn-md" routerLink="skills/new">
             <i class="fa-regular fa-plus "></i> Add Skill
             </button>
         </div>
     </div>
-    <div class="row container card-group bg-transparent">
-        <div class="col-sm-4 progress-wrapper mb-4" *ngFor="let skill of skills ">
-            <round-progress [current]="skill.skills_domain " [max]="max " [rounded]="true" [radius]="80"></round-progress>
+
+    <div class="row container card-group bg-transparent ">
+        <div class="col-sm-4 progress-wrapper mb-4 " *ngFor="let skill of skills ">
+
+            <round-progress [current]="skill.skills_domain " [max]="max " [rounded]="true " [radius]="80 "></round-progress>
+
             <div class="card-body text-center ">
                 <div class="text-vertical ">
-                    <h6 class="card-title "> {{skill.skills_name}} </h6>
-                    <p class="card-text ">{{ skill.skills_domain }}/{{ max }}</p>
+                    <h6 class="card-title "> {{ skill.skills_name }} </h6>
                 </div>
             </div>
-            <div class="text-center" *ngIf="isAdmin">
-                <button class="btn btn-outline-success" routerLink="skills/update">
-                    <i class="fa-solid fa-pen-to-square"></i> Edit</button>
-                <button class="btn btn-outline-danger" routerLink="/skills/all">
-                    <i class="fa-solid fa-trash-can"></i> Delete</button>
+            <div class="text-center " *ngIf="isAdmin ">
+                <button class="btn btn-outline-success" routerLink="/skills/update/{{skill.idSkills}}">
+                    <i class=" fa-regular fa-pen-to-square "></i> Edit</button>
+                <button class="btn btn-outline-danger " (click)="delete(skill.idSkills) ">
+                    <i class="fa-regular fa-trash-can "></i> Delete</button>
             </div>
         </div>
-
     </div>
 </section>

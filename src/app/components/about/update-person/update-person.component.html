@@ -1,0 +1,46 @@
+<p>update-person works!</p>
+<!--div *ngIf="person"-->
+<div>
+    <h3 class="text-center">Update Personal Data</h3>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-4 mx-auto">
+                <form (ngSubmit)="onUpdate()" novalidate #updateForm="ngForm">
+                    <div class="form-group">
+                        <label for="person_firstname">Name: </label>
+                        <input type="text" class="form-control" id="person_firstname" name="person_firstname" [(ngModel)]="person.firstname">
+                    </div>
+                    <div class="form-group">
+                        <label for="person_lastname">Lastname: </label>
+                        <input type="text" class="form-control" id="person_lastname" name="person_lastname" [(ngModel)]="person.lastname">
+                    </div>
+                    <div class="form-group">
+                        <label for="person_aboutMe">About Me: </label>
+                        <textarea type="text" rows="10" class="form-control" id="person_aboutMe" name="person_aboutMe" [(ngModel)]="person.about_me"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="person.title">Title: </label>
+                        <input type="text" class="form-control" id="person.title" name="person.title" [(ngModel)]="person.title">
+                    </div>
+                    <div class="form-group">
+                        <label for="person.location">Location: </label>
+                        <input type="text" class="form-control" id="person.location" name="person.location" [(ngModel)]="person.location">
+                    </div>
+                    <div class="form-group">
+                        <label for="person.location">Profile picture: </label>
+                        <input type="text" class="form-control" id="person.profile_img" name="person.profile_img" [(ngModel)]="person.profile_img">
+                    </div>
+
+                    <div class="mt-2 d-grid gap-2 form-group">
+                        <button class="btn btn-outline-success btn-block" [disabled]="!updateForm.valid">
+                        <i class="fas fa-refresh"></i> Update
+                    </button>
+                        <button class="btn btn-outline-primary btn-block" routerLink="/potfolio/all">
+                        <i class="fas fa-arrow-alt-circle-left"></i> Volver
+                    </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
