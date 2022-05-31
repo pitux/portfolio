@@ -1,8 +1,17 @@
 #user {
+    position: absolute;
     width: 10%;
     margin-left: 10%;
-    margin-top: -6%;
-    border: 35px;
+    margin-top: -13%;
+}
+
+#profile {
+    vertical-align: middle;
+    margin-left: 5%;
+}
+
+#profile_data {
+    margin-top: 10%;
 }
 
 @media screen and (max-width: 915px) {
@@ -12,7 +21,7 @@
         margin-top: 2%;
         border: 35px;
     }
-    div#personalData {
+    div#profile_data {
         text-align: center;
     }
 }

@@ -10,10 +10,12 @@
                     <label for="precio">Domain</label>
                     <input type="number" class="form-control" id="skills_domain" name="skills_domain" [(ngModel)]="skills_domain" required>
                 </div>
-                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                <div class="mt-4 text center">
+                    <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
                     <i class="fas fa-plus-circle"></i> Crear</button>
-                <button class="btn btn-outline-primary btn-block" routerLink="/skills/all">
+                    <button class="btn btn-outline-primary btn-block" routerLink="/portfolio/all">
                     <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+                </div>
             </form>
         </div>
     </div>

@@ -20,9 +20,6 @@ export class AboutComponent implements OnInit {
 
   constructor(
     private portfolioService: PortfolioService,
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private toastr: ToastrService,
     private tokenService: TokenService,
 ) { }
   
@@ -39,31 +36,6 @@ export class AboutComponent implements OnInit {
     this.portfolioService.getPortfolio().subscribe((response: any) => this.portfolioList = response);
   }
 
-/*
-
-  onAboutUpdate(){
-
-    const id = this.activatedRoute.snapshot.params['id'];
-
-    console.log("Clase: " + this.persona)
-  
-    this.portfolioService.updatePersona(id, this.persona).subscribe(
-        data => {
-          this.toastr.success('Person Updated', 'OK', {
-            timeOut: 3000, positionClass: 'toast-top-center'
-          });
-          console.log(data);
-          this.router.navigate(['/portfolio/all']);
-        },
-        err => {
-          this.toastr.error(err.error.mesagge, 'Fail', {
-            timeOut: 3000, positionClass: 'toast-top-center',
-          });
-          // this.router.navigate(['/']);
-        }
-      );
-  }
-*/
 }
 
 

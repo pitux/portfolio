@@ -30,6 +30,12 @@ import { UpdateSkillsComponent } from './components/skills/update-skills/update-
 import { ProjectsComponent } from './components/projects/projects.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UpdatePersonComponent } from './components/about/update-person/update-person.component';
+import { UpdateProjectComponent } from './components/projects/update-project/update-project.component';
+import { NewProjectComponent } from './components/projects/new-project/new-project.component';
+import { NewStudyComponent } from './components/studies/new-study/new-study.component';
+import { UpdateStudyComponent } from './components/studies/update-study/update-study.component';
+import { NewJobComponent } from './components/jobs/new-job/new-job.component';
+import { UpdateJobComponent } from './components/jobs/update-job/update-job.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +52,13 @@ import { UpdatePersonComponent } from './components/about/update-person/update-p
     LoginComponent,
     NewSkillsComponent,
     UpdateSkillsComponent,
-    UpdatePersonComponent
+    UpdatePersonComponent,
+    UpdateProjectComponent,
+    NewProjectComponent,
+    NewStudyComponent,
+    UpdateStudyComponent,
+    NewJobComponent,
+    UpdateJobComponent
   ],
   imports: [
     BrowserModule,

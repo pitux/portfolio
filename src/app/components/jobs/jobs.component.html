@@ -1,6 +1,32 @@
-<p>jobs works!</p>
-<div *ngFor="let jobs of jobsList">
-    <p class="card-text">
-        {{jobs.job_name}}
-    </p>
-</div>
+<section class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <h3 class="text-left fw-bolder">Jobs</h3>
+        </div>
+        <div class="col-sm-3" *ngIf="isAdmin">
+            <button class="btn btn-outline-success btn-md mt-4" routerLink="jobs/new">
+            <i class=" fa-regular fa-plus "></i> Add New Job
+            </button>
+        </div>
+    </div>
+    <div class="card text-white bg-dark mb-3 container" *ngFor=" let job of jobs ">
+        <div class="row ">
+            <div class="col-md-8 ">
+                <div class="card-body ">
+                    <h5 class="card-title ">{{ job.job_place }} </h5>
+                    <p class="card-text "> {{ job.job_name}}</p>
+                    <p class="card-text text-white "><small class="text-muted "> {{ job.job_year }}</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-center " *ngIf="isAdmin ">
+                <button class="btn btn-outline-success " routerLink="jobs/update/{{job.idjobs}} ">
+                    <i class=" fa-regular fa-pen-to-square "></i> Edit</button>
+                <button class="btn btn-outline-danger " (click)="delete(job.idjobs) ">
+                    <i class="fa-regular fa-trash-can "></i> Delete</button>
+            </div>
+        </div>
+    </div>
+
+</section>

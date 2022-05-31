@@ -1,169 +1,37 @@
 <section class="container">
-
     <div class="row">
         <div class="col-sm-9">
             <h3 class="text-left fw-bolder">Projects</h3>
         </div>
         <div class="col-sm-3" *ngIf="isAdmin">
-            <button class="btn btn-outline-success btn-md">
-            <i class="fa-regular fa-plus"></i> New Project
+            <button class="btn btn-outline-success btn-md mt-4" routerLink="projects/new">
+            <i class=" fa-regular fa-plus "></i> Add Project
             </button>
         </div>
     </div>
 
-    <div class="row container">
-        <div class="col-sm-3" *ngFor="let project of projects">
-            <div class="card">
-                <img src="{{project.project_snapshot}}" class="card-img-top" alt="{{project.project_name}}">
-                <div class="card-body">
-                    <h5 class="card-title">{{project.project_name}}</h5>
-                    <p class="card-text">{{project.project_description}}</p>
-                    <h6 class="card-subtitle">Tools:</h6>
-                    <p class="card-text">{{project.project_tools}}</p>
-                    <h6 class="card-subtitle">Year:</h6>
-                    <p class="card-text">{{project.project_start}}</p>
-                    <h6 class="card-subtitle">Website</h6>
-                    <p class="card-text">{{project.project_url}}</p>
-                    <p name="project_id">{{project.project_id}} </p>
+    <div class="card text-white bg-dark mb-3 container" *ngFor="let project of projects">
+        <div class="row">
+            <div class="col-md-4 d-flex p-2">
+                <img src="{{ project.project_img }}" class="img-fluid rounded-start " alt="Project Picture ">
+            </div>
+            <div class="col-md-8 ">
+                <div class="card-body ">
+                    <h5 class="card-title ">{{ project.project_name }} </h5>
+                    <p class="card-text "> {{ project.project_description }}</p>
+                    <p class="card-text "><small class="text-muted "> {{ project.project_start }}</small></p>
+                    <a href="http://{{ project.project_url }}" target="_blank" class="btn btn-primary ">View Site</a>
                 </div>
-                <div class="card-footer text-center" *ngIf="isAdmin">
-                    <ng-container>
-                        <button class="btn btn-md btn-outline-primary" (click)="open(editProjectForm)"> 
-                            <i class="fa-regular fa-pen-to-square"></i>Edit
-                        </button>
-                        <button class="btn btn-md btn-outline-danger" (click)="onDeleteProject(project.project_id)">
-                            <i class="fa-regular fa-trash-can"></i>Delete
-                        </button>
-                        <!-- Edit project -->
-                        <ng-template #editProjectForm let-modal>
-                            <div class="modal-header">
-                                <h4 class="modal-title" id="edit-title">Edit {{project.project_name}}</h4>
-
-                                <button type=" hidden " class="btn-close " data-bs-dismiss="modal " aria-label="Close " (click)="modal.dismiss() "></button>
-                            </div>
-                            <div class="modal-body ">
-                                <!--form #updateProject="ngForm " id="editProject " (ngSubmit)="onUpdateProject(updateProject) "-->
-                                <form #updateProject="ngForm" id="editProject " (ngSubmit)="onUpdateProject() ">
-
-                                    <input ngModel type="text" name="project_id " [ngModel]="project.project_id "><br>
-
-                                    <label for="nombreproject ">Project name:</label><br>
-                                    <input ngModel type="text " name="project_name " class="form-control " [ngModel]="project.project_name ">
-
-                                    <label for="descripcion ">Description:</label><br>
-                                    <input ngModel type="text " name="project_description " class="form-control " [ngModel]="project.project_description ">
-
-                                    <label for="urlImagen ">Project image:</label><br>
-                                    <input ngModel type="text " name="project_snapshot " class="form-control " [ngModel]="project.project_snapshot ">
-
-                                    <label for="urlproject ">Tools:</label><br>
-                                    <input ngModel type="text " name="project_tools " class="form-control " [ngModel]="project.project_tools ">
-                                </form>
-                            </div>
-                            <div class="modal-footer ">
-                                <button type="button " class="btn btn-outline-dark " (click)="modal.close( 'Cancel button') ">
-                                    <i class="fa-regular fa-circle-xmark "></i> Close
-                                </button>
-                                <button type="submit " [disabled]="updateProject.invalid " class="btn btn-outline-dark " (click)="onUpdateProject() ">
-                                    <i class="fa fa-save "></i> Save
-                                </button>
-                            </div>
-                        </ng-template>
-                        <!-- End Edit Project -->
-
-                    </ng-container>
-                </div>
+            </div>
+        </div>
+        <!-- div class="card-footer" -->
+        <div class="card-footer">
+            <div class="text-center " *ngIf="isAdmin ">
+                <button class="btn btn-outline-success" routerLink="projects/update/{{project.project_id}}">
+                    <i class=" fa-regular fa-pen-to-square "></i> Edit</button>
+                <button class="btn btn-outline-danger " (click)="delete(project.project_id) ">
+                    <i class="fa-regular fa-trash-can "></i> Delete</button>
             </div>
         </div>
     </div>
 </section>
-
-
-<!--
-<div class="container ">
-    <div class="row ">
-        <div class=" " id="projects ">
-            <div class="contenido " id="main-container ">
-                <div class="project_name ">
-                    <h4 class=" ">Projects </h4>
-                    <button (click)="onOpenModal(null!, 'addprojectsModal') " type="button " *ngIf="isAdmin ">
-                        <i class="fa-solid fa-plus "></i>New Project
-                    </button>
-                </div>
-                <div class="flex ">
-                    <div class=" " *ngFor="let project of projects ">
-                        <div class=" ">
-                            <div class=" ">
-                                <a href={{project.project_url}} target="_blank "><img src="http://{{project.project_url}} " alt="project image "></a>
-                                <div class=" " id=" " *ngIf="isAdmin ">
-                                    <button (click)="onOpenModal(project, 'edit') " type="button " class="btn btn-warning ">
-                                <i class="fa-solid fa-pen "></i>
-                                </button>
-                                    <button (click)="onOpenModal(project, 'delete') " type="button " class="btn btn-danger ">
-                                <i class="fa-solid fa-eraser "></i>
-                                </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    -->
-<!-- Add projects -->
-<!--
-
--->
-<!-- Update Projects -->
-<!--
-    <div class="modal fade " id="updateprojectsModal " data-backdrop="static " data-keyboard="false " tabindex="-1 " aria-labelledby="updateprojectModal " aria-hidden="true ">
-        <div class="modal-dialog ">
-            <div class="modal-content ">
-                <div class="modal-header ">
-                    <h5 class="modal-title " id="staticBackdropLabel ">Editar project</h5>
-                    <button type="button " class="close " data-dismiss="modal " aria-label="Close ">
-                <span aria-hidden="true ">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body ">
-                    <form #editForm="ngForm ">
-                        <label for="nombreproject ">Nombre del project</label><br>
-                        <input ngModel type="text " ngModel="{{editprojects?.nombre}} " name="nombreproject " class="form-control ">
-                        <label for="descripcion ">Descripción</label><br>
-                        <input type="text " name="descripcion " ngModel="{{editprojects?.descripcion}} " class="form-control ">
-                        <input type="hidden " name="id " ngModel="{{editprojects?.id}} ">
-                        <div class="modal-footer ">
-                            <button id="update-project-modal " type="button " class="btn " data-dismiss="modal ">Cancelar</button>
-                            <button (click)="onUpdateproject(editForm.value) " type="button " class="btn " data-dismiss="modal ">Guardar cambios</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
--->
-<!-- Delete Projects -->
-<!--
-    <div class="modal fade " id="deleteprojectsModal " data-backdrop="static " data-keyboard="false " tabindex="-1 " aria-labelledby="deleteprojectModal " aria-hidden="true ">
-        <div class="modal-dialog ">
-            <div class="modal-content ">
-                <div class="modal-header ">
-                    <h5 class="modal-title " id="staticBackdropLabel "></h5>
-                    <button type="button " class="close " data-dismiss="modal " aria-label="Close ">
-                <span aria-hidden="true ">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body ">
-                    <p>Esta acción eliminará "{{deleteProject?.nombre}} ". ¿Desea continuar?</p>
-                </div>
-                <div class="modal-footer ">
-                    <button type="button " class="btn btn " data-dismiss="modal ">No</button>
-                    <button (click)="onDeleteproject(deleteprojects.id) " type="button " class="btn " data-dismiss="modal ">Sí</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
--->

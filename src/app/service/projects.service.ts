@@ -24,7 +24,8 @@ export class ProjectsService {
   }
 
   public detailProject(id: number): Observable<Project> {
-    return this.http.get<Project>(this.apiUrl + 'detail/${project_name}');
+    console.log(this.apiUrl + `view/${id}`);
+    return this.http.get<Project>(this.apiUrl + `view/${id}`);
   }
 
   public saveProject(project: Project): Observable<any> {

@@ -1,19 +1,20 @@
 <section class="container">
-
-    <div class="col-sm-9">
-        <h3 class="text-left fw-bolder">
-            About Me
-        </h3>
-    </div>
-    <div *ngFor="let portfolio of portfolioList" class="">
-        <div class="col-sm-3 mt-4" *ngIf="isAdmin">
-            <button class="btn btn-outline-success" routerLink="person/update/{{ portfolio.id }}">
-                <i class="fa-regular fa-pen-to-square"></i> Edit
+    <div *ngFor="let portfolio of portfolioList">
+        <div class="row">
+            <div class="col-sm-9">
+                <h3 class="text-left fw-bolder">About Me</h3>
+            </div>
+            <div class="col-sm-3" *ngIf="isAdmin">
+                <button class="btn btn-outline-success btn-md mt-4" routerLink="person/update/{{ portfolio.id }}">
+            <i class="fa-regular fa-plus "></i> Edit
             </button>
+            </div>
         </div>
-        <div class="card-text">
+
+        <div class="container col-sm-9">
             <p>{{ portfolio.about_me }}</p>
             <p> </p>
         </div>
     </div>
+
 </section>

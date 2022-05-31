@@ -1,0 +1,32 @@
+<div class="col-md-8 ">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-4 mx-auto">
+                <form (ngSubmit)="onCreate()" novalidate #newStudy="ngForm">
+                    <div class="form-group">
+                        <label for="studies_title">Title</label>
+                        <input type="text" class="form-control" id="studies_title" name="studies_title" [(ngModel)]="studies_title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studies_institute">Institute</label>
+                        <input type="text" class="form-control" id="studies_institute" name="studies_institute" [(ngModel)]="studies_institute" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studies_year">Year:</label>
+                        <input type="text" class="form-control" id="studies_year" name="studies_year" [(ngModel)]="studies_year" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studies_logo">Logo URL:</label>
+                        <input type="text" class="form-control" id="studies_logo" name="studies_logo" [(ngModel)]="studies_logo" required>
+                    </div>
+                    <div class="btn-group mt-4 btn-block">
+                        <button class="btn btn-outline-success" [disabled]="!newStudy.valid">
+                        <i class="fas fa-plus-circle"></i> Crear</button>
+                        <button class="btn btn-outline-primary btn-block" routerLink="/portfolio/all">
+                        <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
