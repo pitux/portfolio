@@ -9,7 +9,7 @@ import { Studies } from '../components/model/studies';
 })
 export class StudiesService {
 
-  apiUrl="http://localhost:8080/studies/";
+  apiUrl="https://portfolio-pdg.herokuapp.com/studies/";
 
   constructor(private http: HttpClient) { }
 

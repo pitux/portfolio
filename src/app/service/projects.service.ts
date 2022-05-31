@@ -9,10 +9,8 @@ import { Project } from '../components/model/project';
 export class ProjectsService {
   
   
-  //apiUrl = "https://portfolio-pdg.herokuapp.com/projects/";
-  apiUrl="http://localhost:8080/projects/";
-
-
+  apiUrl = "https://portfolio-pdg.herokuapp.com/projects/";
+  
   constructor(private http: HttpClient) { }
 
   public listProjects(): Observable<Project[]>{

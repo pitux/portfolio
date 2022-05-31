@@ -10,7 +10,7 @@ import { Skills } from '../components/model/skills';
 })
 export class SkillsService {
   
-  apiUrl="http://localhost:8080/skills/";
+  apiUrl="https://portfolio-pdg.herokuapp.com/skills/";
 
   constructor(private http: HttpClient) { }
 

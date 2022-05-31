@@ -9,8 +9,8 @@ import { Job } from '../components/model/jobs';
 })
 export class JobsService {
 
-  apiUrl="http://localhost:8080/jobs/";
-
+  apiUrl = "https://portfolio-pdg.herokuapp.com/jobs/";
+  
   constructor(private http: HttpClient) { }
 
   public getJob(): Observable<Job[]>{
