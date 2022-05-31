@@ -43,4 +43,8 @@ round-progress {
         margin: 0 auto 50px;
         padding: 25px;
     }
+    #skills {
+        margin-top: -100%;
+        margin-left: 38%;
+    }
 }
