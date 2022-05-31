@@ -1,44 +1,37 @@
 <section class="container">
     <div class="row">
-        <div class="">
-            <h5 class="text-left fw-bolder">
-                Projects
-            </h5>
+        <div class="col-sm-9">
+            <h3 class="text-left fw-bolder">Projects</h3>
+        </div>
+        <div class="col-sm-3" *ngIf="isAdmin">
+            <button class="btn btn-outline-success btn-md mt-4" routerLink="projects/new">
+            <i class=" fa-regular fa-plus "></i> Add Project
+            </button>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-8">
-            <ul *ngFor="let projects of projectsList">
-                <li class="card-text">
-                    {{projects.project_name}}
-                </li>
-                <p class="card-text">
-                    {{projects.project_description}}
-                </p>
-                <p class="card-text">
-                    {{projects.developed_with}}
-                </p>
-                <p class="card-text">
-                    Year: {{projects.project_start}} - {{projects.project_end}}
-                </p>
-            </ul>
+
+    <div class="card text-white bg-dark mb-3 container" *ngFor="let project of projects">
+        <div class="row">
+            <div class="col-md-4 d-flex p-2">
+                <img src="{{ project.project_img }}" class="img-fluid rounded-start " alt="Project Picture ">
+            </div>
+            <div class="col-md-8 ">
+                <div class="card-body ">
+                    <h5 class="card-title ">{{ project.project_name }} </h5>
+                    <p class="card-text "> {{ project.project_description }}</p>
+                    <p class="card-text "><small class="text-muted "> {{ project.project_start }}</small></p>
+                    <a href="http://{{ project.project_url }}" target="_blank" class="btn btn-primary ">View Site</a>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-4" *ngIf="isLogged">
-            <a href="">
-                <fa-icon [icon]="editIcon " aria-label="Edit" aria-expanded="Edit" (click)="edit"></fa-icon>
-            </a>
-            <a href="">
-                <fa-icon [icon]="deleteIcon " aria-label="Delete " aria-expanded="Delete "></fa-icon>
-            </a>
-            <a href="">
-                <fa-icon [icon]="addIcon" aria-label="Add project" aria-expanded="Add Project"></fa-icon>
-            </a>
+        <!-- div class="card-footer" -->
+        <div class="card-footer">
+            <div class="text-center " *ngIf="isAdmin ">
+                <button class="btn btn-outline-success" routerLink="projects/update/{{project.project_id}}">
+                    <i class=" fa-regular fa-pen-to-square "></i> Edit</button>
+                <button class="btn btn-outline-danger " (click)="delete(project.project_id) ">
+                    <i class="fa-regular fa-trash-can "></i> Delete</button>
+            </div>
         </div>
     </div>
 </section>
-
-<ng-template #edit>
-    <div>
-        <h3>Edit Project</h3>
-    </div>
-</ng-template>

@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <form (ngSubmit)="onCreate()" novalidate #newProject="ngForm">
+                <div class="form-group">
+                    <label for="project_name">Project Name</label>
+                    <input type="text" class="form-control" id="project_name" name="project_name" [(ngModel)]="project_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="project_description">Description</label>
+                    <input type="text" class="form-control" id="project_description" name="project_description" [(ngModel)]="project_description" required>
+                </div>
+                <div class="form-group">
+                    <label for="project_img">Project Image:</label>
+                    <input type="text" class="form-control" id="project_img" name="project_img" [(ngModel)]="project_img" required>
+                </div>
+                <div class="form-group">
+                    <label for="project_start">Date:</label>
+                    <input type="text" class="form-control" id="project_start" name="project_start" [(ngModel)]="project_start" required>
+                </div>
+                <div class="form-group">
+                    <label for="project_tools">Tools used:</label>
+                    <input type="text" class="form-control" id="project_tools" name="project_tools" [(ngModel)]="project_tools" required>
+                </div>
+                <div class="form-group">
+                    <label for="project_url">URL:</label>
+                    <input type="text" class="form-control" id="project_url" name="project_url" [(ngModel)]="project_url" required>
+                </div>
+                <div class="btn-group mt-4 btn-block">
+                    <button class="btn btn-outline-success" [disabled]="!newProject.valid">
+                    <i class="fas fa-plus-circle"></i> Crear</button>
+                    <button class="btn btn-outline-primary btn-block" routerLink="/portfolio/all">
+                    <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

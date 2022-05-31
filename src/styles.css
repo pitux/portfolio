@@ -1,10 +1,18 @@
 html,
 body {
     height: 100%;
-    margin: 0;
     font-family: 'Josefin Sans', sans-serif;
     background-color: #2b2c2c;
-    color: #e0a80d;
+    color: #FFF;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 20px;
 }
 
 fa-icon {
@@ -35,9 +43,4 @@ fa-icon:hover {
     padding: auto;
     margin-right: 10px;
     vertical-align: middle;
-}
-
-#edition {
-    vertical-align: middle;
-    float: right;
 }

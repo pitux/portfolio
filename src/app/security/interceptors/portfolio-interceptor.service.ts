@@ -10,6 +10,12 @@ export class PortInterceptorService implements HttpInterceptor {
 
   constructor(private tokenService: TokenService) { }
 
+ /**
+  * The function intercepts the request, clones it, and adds the token to the header
+  * @param req - HttpRequest<any> - The request object
+  * @param {HttpHandler} next - HttpHandler - the next interceptor in the chain
+  * @returns The request is being returned with the token attached to the header.
+  */
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let intReq = req;
     const token = this.tokenService.getToken();
