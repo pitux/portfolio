@@ -52,7 +52,7 @@ export class UpdateProjectComponent implements OnInit {
   
     this.projectService.updateProject(id, this.project).subscribe(
         data => {
-          this.toastr.success('Skill Updated', 'OK', {
+          this.toastr.success('Project Updated', 'OK', {
             timeOut: 3000, positionClass: 'toast-top-center'
           });
           console.log(data);

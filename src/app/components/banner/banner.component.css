@@ -16,18 +16,18 @@
 
 @media screen and (max-width: 915px) {
     img#user {
-        width: 15%;
-        margin-left: 42%;
-        margin-top: 2%;
+        width: 25%;
+        margin-left: 0%;
+        margin-top: -1%;
         border: 35px;
     }
     div#profile_data {
-        text-align: center;
+        text-align: right;
     }
 }
 
 
-/* On screens that are 600px or less, set the background color to olive */
+/* On screens that are 600px or less */
 
 @media screen and (max-width: 600px) {
     #user {

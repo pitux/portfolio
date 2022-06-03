@@ -10,6 +10,10 @@ h3 {
 }
 
 @media screen and (max-width: 915px) {
+    #skill {
+        margin-top: 40%;
+        margin-left: 8%;
+    }
     img#user {
         width: 15%;
         margin-left: 0%;
