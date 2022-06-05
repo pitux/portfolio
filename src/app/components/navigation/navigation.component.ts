@@ -16,8 +16,6 @@ export class NavigationComponent implements OnInit {
 
   //Icons in use in the website
   iconGitHub = faGithub;
-  iconTwitter = faTwitter;
-  iconInstagram = faInstagram;
   iconLinkedIn = faLinkedin;
 
   iconLogin = faSignInAlt;
