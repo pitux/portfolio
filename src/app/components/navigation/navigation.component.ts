@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 //Iconos 
-import { faGithub, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faDoorOpen, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { LoginUsuario } from 'src/app/security/Entity/login-usuario';
 import { AuthService } from 'src/app/security/service/auth.service';
@@ -18,6 +18,8 @@ export class NavigationComponent implements OnInit {
   iconGitHub = faGithub;
   iconTwitter = faTwitter;
   iconInstagram = faInstagram;
+  iconLinkedIn = faLinkedin;
+
   iconLogin = faSignInAlt;
   entrar = faDoorOpen;
   salir = faSignOutAlt;

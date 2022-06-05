@@ -49,16 +49,14 @@ export class NewStudyComponent implements OnInit {
 
       this.studyService.saveStudies(study).subscribe(
         data => {
-          this.toastr.success('Project created!', 'OK', {
+          this.toastr.success('Study created!', 'OK', {
             timeOut: 3000, positionClass: 'toast-top-center'
           });
-          this.router.navigate(['']);
         },
         err => {
           this.toastr.error('', 'Fail', {
             timeOut: 3000, positionClass: 'toast-top-center',
           });
-          // this.router.navigate(['/']);
         }
       );
   }
