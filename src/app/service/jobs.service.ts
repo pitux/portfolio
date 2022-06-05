@@ -13,7 +13,7 @@ export class JobsService {
   
   constructor(private http: HttpClient) { }
 
-  public getJob(): Observable<Job[]>{
+  public listJob(): Observable<Job[]>{
     return this.http.get<Job[]>(this.apiUrl + 'all')
   }
   
